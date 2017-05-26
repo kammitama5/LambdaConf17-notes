@@ -1,0 +1,514 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Lambda Conf Notes}
+\author{Krystal Maughan }
+\date{May 25th 2017}
+
+\begin{document}
+
+\maketitle
+
+\mathversion{bold}{$ Notes: $}
+\\
+\\
+\mathversion{normal}
+\\
+Over 400 attendees were at this LambaConf.
+Keynote by Ed Lattimore, who spoke on Fear.
+\\
+\section{Introduction} 
+Category Theory by David Spivak
+\\
+\\
+Set 
+\\
+How to compose Functions
+\\
+Monad/ Bind Return
+\\
+\\
+Branches of mathematics need to talk to each other
+\\
+\\
+\section{Section}
+Category of Sets
+\\
+Category of Vect
+\\
+Category of Hask
+\\
+Category of Poset
+\\
+Category of Topological Spaces 
+\\
+Set: bag full of dots
+\\
+A $\rightarrow_{f}$ B
+\\
+\\
+Identity function: C $\rightarrow$ C
+\\
+\\
+\\
+\\
+\\
+\section{Bijective}
+People $\rightarrow$ Place 
+\\
+People $\leftarrow$ Place
+\\
+\\
+Initial Set: Set with no elements 
+\\
+The Empty set
+\\
+For any A, there is a unique set from
+\\
+$\emptyset$ $\rightarrow$ A
+\\
+\\$\forall$ x : X $\exists$! a: A such that f(x) = a
+\\
+\section{Terminal Set}
+From A to B by 
+\\
+$Hom_{set}(A, B)$ or Set(A, B)
+\\
+Hom($\emptyset$, A) = 1
+\\
+\\
+\section{Universal Properties}
+Given Sets A and B, what is special about their product
+\\
+A x B = [(a, b)| a $\epsilon$ A, b $\epsilon$ b ]
+\\
+\section{Coproducts}
+For any A, B,
+\\
+A + B is a set such that A+B $\rightarrow$ X
+\\
+\\
+a = [1], b = [1, 2]
+\\
+a + b
+\\
+(a, 1), (b, 1), (b, 2)
+\\
+Isomorphic: way of getting from one to the other
+\\
+\section{Exponentials}
+Think of Exponentials as Function Objects
+\\
+(n, n, n) and (m, m)
+\\
+How many different ways to map from one to the other? 
+\\
+Number of possibilities = $2^{3}$
+\\
+Hom(A,B) is a set denoted
+$B^{A}$
+Type A $\rightarrow$ B
+\\
+Bijection is equivalence relation
+\\
+Reflective, Transformative, Equivalence
+\\
+Bijection = Isomorophic in set
+\\
+\\
+Exponential satisfy universal property
+\\
+For any A,B, C
+\\
+Hom(A x B, C) $\equiv$ Hom(A, $C^{B}$)
+\\
+currying
+\\
+$C^{A \times B}$ $\equiv$ $(C^{B})^{A}$
+\\
+\\
+\section{General}
+What is a category?
+\\
+Def: A category C consists of: 
+\\
+(Ob(C))
+\\
+Elements of a set are called Objects
+\\
+For every c, d $\epsilon$ $\leftarrow$ Ob(c), a set
+\\
+$Hom_{C}(c,d)$ elements are called morphisms
+\\
+f $\epsilon$ Hom(c, d) write f: c $\rightarrow$ d c $\rightarrow^{f}$ d
+\\
+For every c $\epsilon$ Ob(c), a choice $id_{c} \epsilon$ $Hom_{c}(c, c)$
+\\
+returns self
+\\
+For every f $\leftarrow$ Hom(c,d), g $\epsilon$ Hom(d,e)
+an element f; g $\epsilon$ Hom(c, e)
+\\
+\\
+satisfying
+\\
+A. for any f: c $\rightarrow$ d 
+\\
+$id_{c}$ ; f = f = f (identity)
+\\
+Unital
+\\
+\\
+B. Associative 
+\\
+Discrete Category
+\\
+Satisfies all the rules 
+\\
+category each element must map to itself
+\\
+Any set can be regarded as a discrete category
+\\
+Any poset (partially ordered set) can be regarded as a category
+\\
+eg. if I am level 5 clearance I also have clearance for 4, 3, 2 and 1
+\\
+$\forall$ A $\epsilon$ P, a $\leq$ a (reflexive)
+\\
+(so I have privileges less than or equal to myself)
+\\
+\\
+A poset is a pre-order P $\leq$ such that a $\leq$ b, b $\leq$ a $\rightarrow$ a = b
+\\
+A poset / preorder can be regarded as category:
+\\
+it is one where every $Hom_{c}$(a, b) has at most one element
+\\
+$a \rightarrow b$
+\\
+$a \leq b$
+\\
+Initial object: map from one thing to another
+\\
+Everything maps to uniquely -> called Terminal object
+\\
+\section{Monoid}
+Any monoid can be regarded as a category
+\\
+A monoid consists of a set M
+\\
+an element e $\leftarrow$ M
+\\
+a function * M $\times$ M $\rightarrow$ M
+\\
+such that e * m = m * e for all m
+\\
+(m * n) * p = m * n + p
+\\
+eg. (List A, [ ], append)
+\\
+\\
+Path through a graph are called free categories
+\\
+\section{Lunch}
+Lunch
+\section{Functors, Natural Transformations Adjunctions}
+Functor: Maps between categories
+\\
+Def: Let C and D be categories
+\\
+A functor F from C to D, write F : C $\rightarrow$ D
+\\
+A function F : Ob(C) $\rightarrow$ Ob(D)
+\\
+For every $c_{1}$, $c_{2}$ $\epsilon$ Ob(C) a function
+\\
+F:$Hom_{C}(c_{1}, c_{2}) \rightarrow Hom_{C}(F(c_{1}), F(c_{2})$
+\\
+such that 
+A. for any C $\epsilon$ Ob C, F($id_{c}$) = id
+\\
+B. For any $c_{1} \rightarrow c_{2} \rightarrow c_{3}$
+F(f;g) = F(f) ; F(g)
+\\
+\\
+monotone : preserves less than
+\\
+A functor P $\rightarrow$ Q is a monotone map P $\rightarrow$ Q.
+\\
+P $\leq$ P $\rightarrow$ f(p) $\leq$ f(p)
+\\
+return : A $\rightarrow$ List A
+\\
+Let M, N be monoids
+\\
+A functor M $\rightarrow$ N
+\\
+id $\rightarrow$ id
+\\
+F($m_{1} \times m_{2}$) = F$(m_{1}) \times F(m_{2})$
+\\
+Cat is a category
+\\
+Ob(Cat) = all categories
+\\
+$Hom_{cat}$ (C, D) = F: C $\rightarrow$ D functors
+\\
+A functor F: C $\rightarrow$ D is called faithful if
+$\forall$ $c_{1}, c_{2}$ if F($Hom_{C}(c_{1}, (c_{2}) \rightarrow F(c_{1}, c_{2})$ 
+\\
+is injective ie if f, g : $c_{1} \rightarrow c_{2}$
+\\
+are such that F(f) = F(g), then f = g
+\\
+\section{Natural Transformations}
+A natural transformation
+\\
+Let C, D be cats
+\\
+F,G:C $\rightarrow$ D be functors
+\\
+A natural transformation p : F $\rightarrow$ G consists of 
+\\
+for each c $\exists$ Ob(C), morphism $P_{c}$ : F(c) $\rightarrow$ G(c) in D
+\\
+such that
+\\
+for every f : $c_{1} \rightarrow c_{2}$ in C
+\\
+F$(c_{1}) \rightarrow_{F(f)} F(c)$
+\\
+G$(c_{1}) \rightarrow_{G(f)} G(c_{2})$
+\\
+\section{Graph Homomorphisms}
+Let G, H be graphs
+\\
+A graph homomorphism
+\\
+f: G $\rightarrow$ H is 
+\\
+a function G(v) $\rightarrow$ H(v)
+\\
+a function G(A) $\rightarrow$ H(A)
+\\
+such that 
+\\
+respecting source and target
+\\
+database homomorphism
+\\
+For every two categories C and D 
+\\
+there is a category Fun(C, D) whose objects are the Functors
+\\
+F : C $\rightarrow$ D
+\\
+$Hom_{(C,D)}$(F,G) = p: F $\rightarrow$ G 
+\\
+f: $c_{1} \rightarrow c_{2}$ in C
+\\
+\\
+Look at FQL (Topos)
+\\
+Algebraic Databases 5/26 last session
+\\
+\\
+\section{Adjunctions}
+Adjoints(Adjunctions)
+\\
+Let C, D be cats, 
+\\
+C $\rightarrow^{L}$ D and D $\rightarrow^{R}$ C functors
+\\ 
+we say L is the left adjoint of R
+\\
+R is right adjoint of L
+\\
+if there is a natural isomorphism
+if for all c $\epsilon$ Ob(C), d $\epsilon$ Ob(D), there is an iso
+\\
+Hom(L(c), d)  $\equiv$ Hom (c, R(d))
+\\
+\\
+Sat 11:30am Adjunctions
+\\
+\\
+currying is an example from adjunctions
+\\
+\\
+Fix a set A
+\\
+Let Set $\rightarrow^{L_{A}}$ Set
+Set $\rightarrow^{R_{A}}$ Set
+\\
+For any Set X $\epsilon$ Set
+\\
+$L_{A}(X): = A \times X$ is a functor
+\\
+$R_{A}(Y): = Y^{A}$
+\\
+$R_{A}(L_{A}(X))$ = (X $\times A)^{A}$
+\\
+$L_{A}(R_{A}(X)) = X^{A} \times A$
+\\
+$Hom_{set}(L_{A}(X), Y) \equiv Hom_{set} (X, R_{A}(Y))$
+\\
+functors X $\times$ A $\rightarrow$ Y $\equiv$ X $\rightarrow$ $Y^{A}$
+\\
+\\
+Set $\rightarrow$ Monoid
+\\
+Free Monoid
+\\
+X $\rightarrow$ (List(X), [ ], append)
+\\
+M $\leftarrow$ (M, e, *)
+\\
+$Hom_{Monoid}$(Free(X), M) $\equiv$ $Hom_{set}(X, U(M))$
+\\
+List(X) $\rightarrow$ M
+\\
+f:X $\rightarrow$ U(M)
+\\
+Triangle Laws
+\\
+\\
+just: X $\rightarrow$ X + 1 
+\\
+Just
+\\
+\\
+X + 1 $\rightarrow$ X 
+\\
+From Just
+\\
+X $\rightarrow$ List(X) (unit)
+\\
+Singleton
+\\
+\\
+List(X), [ ], append) $\rightarrow$ M  (counit)
+\\
+Singleton $\rightarrow$ goes from type to list
+\\
+Fold goes in other direction
+\\
+\\
+\section{Galois connections}
+If C, D are posets
+\\
+Then a Galois connection is 
+\\
+a pair of adjoint functors
+\\
+$\forall$ c $\epsilon$ C, d $\epsilon$ D
+\\
+L(c) $\leq$ d $\iff$ c $\leq$ R(d)
+\\
+\\
+P(A) $\rightarrow^(im(f))$ P(B)
+\\
+P(B) $\leftarrow^{f^{*}}$ P(A)
+\\
+\\
+\section{Monads}
+Let C be a category. 
+\\
+A monad on C consists of:
+\\
+1. A Functor M : C $\rightarrow$ C
+\\
+2. A Natural transformation from $id_{C} \rightarrow M$
+\\
+A natural transformation $\mu$ : M $\circ$ M $\rightarrow$ M 
+\\
+\\
+List: Set $\rightarrow$ Set
+\\
+$Singleton_{X} X \rightarrow List X$
+\\
+flatten: List [List(X)] $\rightarrow$ List(X)
+\\
+\\
+$[ [a, b], [ ], [b, c] ]$
+\\
+\\
+C$\rightarrow_{L}$ D
+\\
+D$\leftarrow_{R}$ C
+\\
+$\mu$ : $id_{e}$ $\rightarrow$ RL
+\\
+$\epsilon$ : LR $\rightarrow$ $id_{D}$
+\\
+Associated Monad on C:
+\\
+(M = RL, $\mu$, R $\epsilon$ L)
+\\
+R $\tau$ RL $\rightarrow$ RL
+\\
+\\
+Associated Co-monad
+\\
+N : = (LR, $\epsilon$, L $\mu$ R)
+\\
+\\
+Suppose C is a cat and (M, $\nu$, $\mu$) is a monad.
+\\
+\section{Kleisli category}Ob(Kl(C)) = Ob(C)
+\\
+$Hom_{Kl(C)} (c, d) = Hom_{C}(c, Md)$
+\\
+$\eta$ : c $\rightarrow$ Mc
+\\
+$c \rightarrow Md$
+\\
+$d \rightarrow Me$
+\\
+c $\rightarrow$ Md $\rightarrow$ M$M_{e}$ $\rightarrow_{\mu}$ Me
+\\
+\section{Eilenberg Moore}
+Given C, M, $\eta$, $\mu$
+\\
+Ob: M-algebras
+\\
+an object $c \epsilon C$
+\\
+a morphism h:$M_{c} \rightarrow c$
+\\
+such that get out of monad using join of monad
+\\
+\\
+M : C $\rightarrow$ C (endofunctor)
+\\
+an M-algebra is 
+\\
+a c $\epsilon$ Ob C
+\\
+a morphism Mc $\rightarrow$ c
+\\
+A morphism of M-algebras (c, h), ($c^{'}$, $h^{'}$)
+\\
+consists of a morphism $c \rightarrow^{f} c^{'}$
+such that
+\\
+Mc $\rightarrow^{h} c \rightarrow c^{'}$
+$M^{f} \rightarrow Mc^{'} \rightarrow^{h^{'}}c^{'}$
+\\
+A coalgebra is the choice of an X $\epsilon$ Ob(C) taking 
+\\
+h: X $\rightarrow$ MX
+\\
+\\
+catamorphism
+\\
+\\
+Stream(X)
+\\
+Stream(A) $\rightarrow$ (A $\times$ Stream A) + 1
+\\
+X $\rightarrow$ A $\times$ X + 1
+\\
+
+
+\end{document}
