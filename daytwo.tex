@@ -1,0 +1,308 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Lambda Conf Notes}
+\author{Krystal Maughan }
+\date{May 26th 2017}
+
+\begin{document}
+
+\maketitle
+
+\mathversion{bold}{$ LambdaConf Day 2 $}
+\\
+\\
+\mathversion{normal}
+\\
+\section{Introduction to Coq} 
+Gabriel Claramunt
+\\
+\\
+Programming Logic
+\\
+Type Theory
+\\
+Proof Assistants
+\\
+Implementation of the Calculus of Contructions
+\\
+Thierry Coquand
+\\
+based on Martin-Lof's Intuitionistic Type Theory
+\\
+\\
+$\frac{hypothesis}{goal}$
+\\
+$\frac{\gamma}{\alpha}$
+\\
+\\
+Assumption: Goal is in hypothesis
+\\
+Propositional Logic
+\\
+split $\rightarrow$ $\frac{\gamma}{\alpha \land \beta}$
+\\
+\\
+Apply
+\\
+$\frac{H: \alpha \rightarrow \beta}{\beta}$
+\\
+\\
+Cut $\beta$
+\\
+$\frac{\gamma}{\alpha}$
+\\
+\\
+Unfold
+\\
+$\frac{\gamma}{\neg \alpha}$
+\\
+\\
+Classical Logic
+\\
+Constructive tautologies (auto)
+\\
+\\
+\section{Proofs}
+A $\rightarrow$ A.
+\\
+intro Ha.
+\\
+assumption
+\\
+\\
+$A \rightarrow B \rightarrow A$
+\\
+intro Ha.
+\\
+intro Hb.
+\\
+assumption.
+\\
+\\
+$(A \rightarrow (B \rightarrow C)) \rightarrow (A \rightarrow B) \rightarrow (A \rightarrow C)$.
+\\
+intros will define three hypothesis values: 
+\\
+A, B and C.
+\\
+\\
+intros.
+\\
+apply H.
+\\
+assumption.
+\\
+apply H0.
+\\
+assumption.
+\\
+\\
+$A \rightarrow \neg \neg A$
+\\
+intros.
+\\
+unfold not.
+\\
+intro.
+\\
+apply H0.
+\\
+assumption.
+\\
+\\
+\section{Higher Order Predicate Calculus}
+$\forall x: U, a$
+\\
+\section{Curry-Howard Correspondence}
+Computer Programs and Mathematics Proofs
+\\
+Typed Lambda Calculus
+\\
+Higher Order
+\\
+Parametric Functions
+\\
+Dependent Types
+\\
+Inductive Types
+\\
+Co-inductive Types
+\\
+\\
+Based on proof, generates code
+\\
+\\
+\section{Mercury: Haskell and Prolog}
+Mercury-Alex Chambers
+\\
+:- (horn) is declaration
+\\
+main(I01, IO) : a rule
+\\
+solutions set takes a predicate output 
+\\
+non deterministic
+\\
+Advantages:
+\\
+relational computation
+\\
+parsing (Prolog is good at parsing)
+\\
+\\
+:- parsemethod(method, list(char), list(char)).
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+\section{Mighty Morphin Data Types}
+David Koontz
+\\
+\\
+$a \rightarrow b$  = morphism
+\\
+eg. toString :: Int $\rightarrow$ String
+\\
+\\
+\section{Endormorphism}
+\\
+$a \rightarrow a$
+\\
+$append :: List$ $a \rightarrow List$  $a$
+\\
+\\
+m a $\rightarrow$ m b
+\\
+bind :: (a $\rightarrow$ m b) $\rightarrow$ m a $\rightarrow$ m b
+\\
+\\
+\section{Homomorphism}
+\\
+f a $\rightarrow$ f b
+\\
+map :: (a $\rightarrow$ b) $\rightarrow$ f a $\rightarrow$ f b
+\\
+Maybe a $\rightarrow$ Maybe b 
+\\
+\\
+\section{Isomorphism}
+\\
+Morphism that can go in the other direction
+\\
+a $\rightarrow$ b 
+\\
+b $\rightarrow$ a 
+\\
+\\
+\section{Bijection} 
+Can have both
+\\
+\section{Injection}
+One to one (unique) but not every Y has to come
+\\
+from an X
+\\
+\section{Surjection}
+All elements on lhs have an element
+\\
+that goes to rhs (can be mapped to more than one
+\\
+on rhs)
+\\
+\\
+\section{Catamorphism}
+a $\rightarrow$ b $\rightarrow$ b
+\\
+fold 
+\\
+List Int $\rightarrow$ Int
+\\
+\\
+\section{Anamorphism}
+Unfold
+\\
+String $\rightarrow$ List String
+\\
+\\
+\section{Hylomorphism}
+Anamorphism followed by a Catamorphism
+\\
+Unfold followed by a fold
+\\
+hylo = fold . unfold
+\\
+\section{Metamorphism}
+Catamorphism followed by an Anamorphism
+\\
+\\
+\\
+\section{Algebraic Databases}
+Ryan Wisnecky
+\\
+\\
+Alebraic way of formalizing databases based on Category Theory
+\\
+Functor : Homomorphism of functions
+\\
+\section{Schemas and Instances}
+Directed labelled multi-graphs 
+\\
+and set of equations between paths
+\\
+\section{Categorical Semantics of Schemas and Instances}
+Each Schema denotes a category
+\\
+Objects are nodes in schema
+\\
+Each schema denotes a category [[S]]
+\\
+nodes(S) $\rightarrow$ nodes(T)
+\\
+edges(S) $\rightarrow$ paths(T)
+\\
+and S $\rightarrow$ is a functor [[S]] $\rightarrow$ [[T]]
+\\
+An S-instance of a functor [[S]] $\rightarrow$  Set
+\\
+\\
+A morphism of S-instances I $\rightarrow$ J (right mapping) 
+\\
+is a natural transformation I $\rightarrow$ J
+\\
+\\
+labelled nulls - Database Theory
+\\
+$null_{1}$ compared with $null_{2}$
+\\
+one less than or more than the other
+\\
+otherwise just null implies one value
+\\
+for null/missing data in database
+\\
+
+
+
+
+
+
+\end{document}
