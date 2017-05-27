@@ -1,0 +1,549 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\title{LambdaConf 2017}
+\author{Krystal Maughan }
+\date{May 27th 2017}
+
+\begin{document}
+
+\maketitle
+
+\mathversion{bold}{Day Three}
+\mathversion{normal}
+\section{Lambda Calculus}
+The Wizard Towel
+\\
+\\
+Identity Function
+$\lambda x . x$
+\\
+x is the function body
+\\
+$\lambda x$ is the head
+\\
+Takes an argument, binds the value to x and returns it
+\\
+In Haskell :  $\setminus$ x $\rightarrow x$
+\\
+\\
+Typed vs untyped lambda calculus
+\\
+Alpha Equivalence $\lambda x.x$ $\equiv$ $\lambda y.y$
+\\
+($\lambda x.x$)2
+\\
+Simplification $beta$ reduction
+\\
+\\
+1. Bind the argument to the name
+\\
+2. Strip off the function head and iterator
+\\
+3. Simplify until we can't anymore.
+\\
+$\lambda$ 2. 2
+\\
+Head: $\lambda$ 2
+\\
+Body: 2 
+\\
+Identity Simplification: 2
+\\
+($\lambda$ x . x)($\lambda$ y . y)
+\\
+\\
+Lambda Calculus: Every function can only take one argument
+\\
+$\lambda$ x.($\lambda$ y. x y)
+\\
+\\
+Converting a function with multiple args $\rightarrow$ currying
+\\
+\\
+See John Carmac porting Haskell talk Wolf 3d
+\\
+\\
+$(\lambda y . ( \lambda z . z) y)$
+\\
+\\
+Types
+\\
+const :: a $\rightarrow$ b $\rightarrow$ a
+\\
+take in one value, take in anothe value, and return the first
+\\
+\\
+:k type (kind of type)
+\\
+Lambda Calculus is a Turing Tarpit
+\\
+\\
+Look up talk on : Lisp Interpreter in AWK
+\\
+(another turing tarpit $\rightarrow$ awk)
+\\
+\\
+\section{Omega Combinator}
+$(\lambda x. x x)(\lambda y . y y)$
+\\
+\\
+Beta Reduction
+\\
+Alpha Conversion
+\\
+What we need is the Y combinator
+\\
+$Y$ = $\lambda f. (\lambda x . f (x x)) (\lambda x. f(x x))$
+\\
+\\
+\section{What are Dependent Types}
+Stephan Boyer
+\\
+\\
+The Lambda Cube
+\\
+\section{Curry-Howard Isomorphism}
+Coq
+\\
+\\
+System F: Polymorphism
+\\
+Functions from types to terms
+\\
+$\forall X. T$
+\\
+\\
+System $\lambda \omega$
+\\
+Kind syntax(K): 
+\\
+functions from * $\rightarrow$ *
+\\
+System LF: dependent types
+\\
+$\Pi x : T. K$
+\\
+\\
+Curry-Howard Isomorphism
+\\
+Type Theory vs Logic
+\\
+eg Sum Type vs Disjunction
+\\
+\\
+\section{Coq}
+GADTs
+\\
+\\
+conj : P $\rightarrow$ Q we have P $\land$ Q
+\\
+\\
+Definition ($\neg$ A $\rightarrow$ False)
+\\
+0: nat
+S: nat $\rightarrow$ nat.
+Defined all natural numbers in Coq.
+\\
+\\
+\section{Higher Order Abstractions}
+Stephan Boyer
+\\
+\\
+\section{Functor}
+supports fmap
+\\
+Takes function a $\rightarrow$ b fa $\rightarrow$ fb
+\\
+\\
+\section{Bifunctor}
+Has two type parameters instead of one
+\\
+bimap :: (a $\rightarrow$ b) $\rightarrow$ (c $\rightarrow$ d) 
+\\
+Either is a bifunctor
+\\
+\\
+\section{Contravariant}
+Looks like fmap.
+\\
+take fb and returns fa
+\\
+Predicate is example of Contravariant
+\\
+contramap :: (a $\rightarrow$ b) $\rightarrow f b \rightarrow f a$
+\\
+\\
+$a \rightarrow (a \rightarrow Int) \rightarrow Int)$ : Invariant
+\\
+data Phantom a = Phantom : Bivariant
+\\
+\\
+\section{Profunctor}
+Hungry for bs and contains cs
+\\
+Dimap
+\\
+Lens, Prism
+\\
+\\
+\section{Haskell Singletons and You}
+Justin Le (mstksg.github.io)
+\\
+Phantom Types
+\\
+closeDoor :: Door 'Opened $\rightarrow$ Door 'Closed
+\\
+closeDoor UnsafeMkDoor = UnsafeMkDoor
+\\
+can only open a close door. Compile type otherwise
+\\
+type can't depend on your inputs
+\\
+In Haskell, types only exist at runtime.
+\\
+They are erased at runtime.
+\\
+\\
+\section{Singleton Pattern}
+Only one value type : we can pattern match
+\\
+showSingDS :: SingDS s $\rightarrow$ String 
+\\
+   SOpened $\rightarrow$ "Opened"
+\\
+   SClosed $\rightarrow$ "Closed"
+\\
+   SLocked $\rightarrow$ "Locked"
+\\
+\\
+Singletons are Poly-kinded typeclasses.
+\\
+\\
+Further Reading: 
+\\
+https://blog.jle.im/entry/verified-instances-in-haskell.html
+\\
+\\
+\section{The Origins of Free}
+Adam Warski
+\\
+\\
+Free Monads:
+\\
+\\
+Separate Description from Interpretation
+\\
+Programmes as values
+\\
+\\
+\section{Universal Algebra : study of general algebraic structures}
+Syntax:
+\\
+Type names $\rightarrow$ set S
+\\
+Operation Names: family $\Omega$ of sets indexed by S* $\times$ S
+\\
+\\
+Interpretation of signature 
+\\
+Function between appropriate sets
+\\
+$\Sigma$ algebra A:
+\\
+$succ_{A}$ =$\lambda . \lambda x + 1$
+\\
+F-Algebra
+\\
+\\
+Term Algebra : built of pure syntax
+\\
+\\
+Algebra: defined inductively
+\\
+base: all constants are terms
+\\
+Step: any functions we can apply on previous terms
+\\
+Base case: [0]
+\\
+$[[0], [0 + succ], etc]$
+\\
+\\
+\section{Homomorphism}
+A Function between algebras
+\\
+A function between type interpretations such 
+\\
+that operations are preserved
+\\
+\\
+$\Sigma$-algebra I is initial when any other 
+\\
+$\Sigma$-algebra A there is exactly
+\\
+one homomorphism from I to A
+\\
+\\
+$f : T_{\Sigma} \rightarrow A$
+\\
+$f(0_{T_{\Sigma}}) = 0_{A}$
+\\
+\\
+\section{Initial Algebra}
+Algebra: Only one way to interpret a term
+\\
+no junk: term algebra contains only what's necessary
+\\
+\\
+Terms with Variables 
+\\
+For any set $X, T_{\Sigma}(X)$ is the term algebra with X
+\\
+added as constants (but called variables)
+\\
+\section{Free Algebra}
+$\Sigma$-algebra I is free over X when for any other
+\\
+$\Sigma$-algebra A, any function
+\\
+$f : X \rightarrow A$
+\\
+extends uniquely to a homomorphism
+\\
+\\
+Free:
+\\
+free to interpret in any way
+\\
+no constraints
+\\
+free of additional structure
+\\
+only contains what is necessary
+\\
+\\
+Term Algebras with Equations
+\\
+some terms need to be combined
+\\
+Equivalence relation generated by $\phi$: $\equiv$ $_{\phi}$
+\\
+Homomorphism to other algebra
+\\
+free object is unique up to an isomorphism
+\\
+\section{Monads}
+Monads return a pure value
+\\
+Compute what to do next based on previous result (flatMap)
+\\
+\\
+\section{Free Monads}
+Signature: pure and Flatmap
+\\
+Variables: operations (our Domain Specific Language)
+\\
+\\
+\section{Free in Haskell}
+data Free f r = Free(f (Free f r)) | Pure r 
+\\
+\\
+\\
+\section{Reference}
+Foundations of Algebraic Specification and
+\\
+Formal Software Development
+\\
+Donald Sannella and Andrzej Tarlecki
+\\
+\\
+\section{Refactoring Recursion}
+Harold Carr
+\\
+\\
+Factor recursion out of data with
+\\
+Foldable, Traversable, Fix
+\\
+Recursion over data
+\\
+cata, para(cata++), histo, zygo/mutu(para++)
+\\
+both: hylo
+\\
+corecursion: hylo
+\\
+\\
+Fold left 0 is top element
+\\
+Fold right 0 is bottom of tree
+\\
+\\
+\section{Recursion Schemes}
+Sub-Categories
+\section{Catamorphism}
+catamorphism : means downwards : aka fold
+\\
+\section{Anamorphism}
+Corecursion, meaning upwards : aka unfold
+\\
+:: b, $\rightarrow$ (a, b)$\rightarrow$  which it operates on b
+$\rightarrow$ [a]
+\\
+\\
+Anamorphism : building something up from a seed analogy
+\\
+\section{Hylomorphism}
+Anamorphism, then catamorphism
+\\
+Composition of catamorphism and anamorphism
+\\
+hyloL :: (a $\rightarrow c \rightarrow c$)
+\\
+corecursive codata production
+\\
+followed by recursive data consumption
+\\
+run co-algebra first build up list from n to 0
+\\
+go across list and use catamorphism
+\\
+eg factorial goes from n to zero, then applies (*)
+\\
+\section{Fusion/ Deforestation}
+Talk on that..later
+\\
+\section{Paramorphism}
+Beside or parallel with
+\\
+Extension of Catamorphism
+\\
+paraL :: (a $\rightarrow [a] \rightarrow b \rightarrow b$)
+\\
+eg Tails library
+\\
+Sliding windows 
+\\
+$(slide 2 [1..5])$
+\\
+$[[1, 2, 3], [2, 3, 4], [3, 4, 5]]$
+\\
+\\
+\section{Apomorphism}
+Apo meaning apart
+\\
+dual of parammorphism
+\\
+extension of anamorphism
+\\
+enables short-circuiting traversal
+\\
+\\
+apoL :: ([b] $\rightarrow$ Maybe(a, Either [b] [a]))
+\\
+\\
+\section{Zygomorphism}
+Generalization of paramorphism
+\\
+zygoL :: ($a \rightarrow b \rightarrow b) \rightarrow (a \rightarrow b \rightarrow c \rightarrow c)$
+\\
+$ b \rightarrow c$
+\\
+$[a]$
+\\
+c
+\\
+eg. Every third element I need to do...
+\\
+\\
+L means List in slides
+\\
+\\
+pmL :: $[Int] \rightarrow [Int]$
+\\
+pmL = zygoL ($\backslash_ b \rightarrow$ not b)
+\\
+\section{Histomorphism}
+Gives access to previously computed values
+\\
+(see photo data History a b)
+\\
+histoL :: ($a \rightarrow History$ a b $\rightarrow b$)
+\\
+$\rightarrow b \rightarrow [a] \rightarrow b$
+\\
+\\
+works bottom up on structure
+\\
+Histomorphism useful for dynamic programming
+\\
+\\
+\section{Futurmorphism}
+Corecursive dual of histomorphism
+\\
+(see photo)
+\\
+\\
+\section{Refactoring Recursion out of data}
+deriving Foldable
+\\
+\section{References}
+Tim Williams' Recursion Schemes presentation
+\\
+http://www.timphilipwilliams.com/slides.html
+\\
+Functional Programming with Banana, Lenses, Envelopes and Barbed Wire
+\\
+\\
+\section{Intuitionistic Logic III: Subschemas and Topologies}
+Vlad Patryshev
+\\
+N is a category of natural numbers
+\\
+$A^{B}$ category of functors from B to A aka diagrams
+\\
+$Set^{2}$ category of 2 diagrams in sets - two sets, one function
+\\
+$S_{0} \rightarrow S_{1} \rightarrow S_{2}$
+\\
+Temporal Logic for Applications - Leslie Lamport
+\\
+\\
+Ternary Logic: Two-State Sets
+\\
+"before" and "after"
+\\
+\\
+Subobject Classifier :
+\\
+(see Slides)
+\\
+\\
+\section{Grothendieck Topology}
+J is the closure of truth in $\Omega$
+\\
+\\
+At some point will be true : diamond classification
+\\
+\\
+Groundhog Week : is a groupoud : Boolean Topology
+\\
+\\
+\section{References}
+P.T.Johnstone "Topos Theory"
+\\
+Ceciia Fiori "A First Course in Topos Quantum Theory"
+\\
+Introduction to Intuitionistic Type Theory
+\\
+Intuitionistic Logic of Database Schema
+\\
+\\
+\section{I Command you to be Free}
+Matt Parsons
+\\
+\\
+
+
+\end{document}
