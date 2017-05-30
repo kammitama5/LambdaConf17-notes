@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\title{Category Theory Notes}
+\author{Krystal Maughan }
+\date{May 30th 2017}
+
+\begin{document}
+
+\maketitle
+
+\mathversion{bold}{Catgory Theory}
+\mathversion{normal}
+\section{Eilenberg-MacLane Spaces}
+was regarded as abstract nonsense, dogmatic
+working in Topology
+\section{Grothendieck}
+60s, algebraic geometry
+\section{Lawvere, Tierney}
+logic, alternative foundations for mathematics
+\\
+\section{Category Theory}
+Homological Algebra
+\\
+new kinds of algebraic objects
+\\
+combinatorial
+\\
+simplicial
+\\
+graph
+\\
+computer science
+\\
+John Baez
+\\
+Braid diagrams
+\\
+higher and enriched categories 
+\\
+\section{What is Category Theory?}
+Category Theory vs Set Theory
+\\
+How do objects behave and relate to each other?
+\\
+relations between things
+\\
+Algebraic co-product
+\\
+common vocabulary among areas in mathematics
+\\
+categorical vocabulary
+\\
+Duality
+\\
+Comma Categories
+\\
+Yoneda Lemma
+\\
+Colimits and Limits
+\\
+Adjunctions
+\\
+Monads
+\\
+Beck's Theorem
+\\
+Abelian Categories
+\\
+Kan extensions
+\\
+Homotopical Algebra : Theory of Model Categories
+\\
+Topoi
+\\
+\section{Practical Category Theory : David Koontz}
+Monoids, SemiGroups
+\\
+\section{SemiGroup}
+class Semigroup a where
+\\
+append :: $a$ $\rightarrow a \rightarrow a$
+\\
+Append is Associative
+\\
+$(a <> b) <> c == a <> (b <> c)$
+\\
+(A appended with B) appended with C 
+\\
+is the same as 
+\\
+A appended with (B appended with C)
+\\
+Monoid
+\\
+class (Semigroup a) <= Monoid a where 
+\\
+empty :: a 
+\\
+SemiGroup is append + associativity law
+\\
+Monoid is semigroup and it has an empty value
+\\
+\\
+Monoid Laws
+\\
+The empty value doesn't change the meaning of a monoidal value
+\\
+a <> empty == a
+\\
+empty <> a == a
+\\
+(left and right identity)
+\\
+\\
+\section{Higher Kinded Types : David Koontz}
+Constraints
+\\
+Generic in structure
+\\
+\section{Functor}
+f a
+\\
+Apply a function to the value(s) in the box
+\\
+map : Functor $f$ => $(a \rightarrow b) \rightarrow f$ $ a \rightarrow f$ $b$
+\\
+
+\end{document}
